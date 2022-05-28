@@ -1,0 +1,392 @@
+{
+	"info": {
+		"_postman_id": "a139f7a3-2a3b-4aec-9152-e3c1c1968c41",
+		"name": "Cars-REST-Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14478071"
+	},
+	"item": [
+		{
+			"name": "cars",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/cars",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index-paginate-custom-page-number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars?per_page=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index-filter-relationships-text",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars?brand=Mercedes-Benz&carModel=240_CLASS",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "brand",
+									"value": "Mercedes-Benz"
+								},
+								{
+									"key": "carModel",
+									"value": "240_CLASS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index-filter-relationships-value",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars?brand=3&carModel=6",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "brand",
+									"value": "3"
+								},
+								{
+									"key": "carModel",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index-filter-relationships-text-like",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars?carModel=X",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "carModel",
+									"value": "X"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index-filter-relationships-values-array",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars?brand[]=3&brand[]=1&carModel[]=6&carModel[]=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "brand[]",
+									"value": "3"
+								},
+								{
+									"key": "brand[]",
+									"value": "1"
+								},
+								{
+									"key": "carModel[]",
+									"value": "6"
+								},
+								{
+									"key": "carModel[]",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index-filter-attributes-value",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars?color=%230099cc",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "color",
+									"value": "%230099cc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index-filter-attributes-values",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars?year=2007&top_speed=160",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2007"
+								},
+								{
+									"key": "top_speed",
+									"value": "160"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index-filter-attributes-array",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars?year[]=2007&year[]=1990&top_speed[]=200&top_speed[]=160",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "year[]",
+									"value": "2007"
+								},
+								{
+									"key": "year[]",
+									"value": "1990"
+								},
+								{
+									"key": "top_speed[]",
+									"value": "200"
+								},
+								{
+									"key": "top_speed[]",
+									"value": "160"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index-filter-range-attributes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars?from[year]=1990&to[year]=2007&from[top_speed]=160&to[top_speed]=240",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "from[year]",
+									"value": "1990"
+								},
+								{
+									"key": "to[year]",
+									"value": "2007"
+								},
+								{
+									"key": "from[top_speed]",
+									"value": "160"
+								},
+								{
+									"key": "to[top_speed]",
+									"value": "240"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index-sort-attributes-asc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars?sort[]=year&sort[]=top_speed",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "sort[]",
+									"value": "year"
+								},
+								{
+									"key": "sort[]",
+									"value": "top_speed"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index-sort-attributes-desc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars?sort[]=year,desc&sort[]=top_speed,desc",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "sort[]",
+									"value": "year,desc"
+								},
+								{
+									"key": "sort[]",
+									"value": "top_speed,desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/cars/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"cars",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.headers.add({key:'Accept', value:'application/json'})"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		}
+	]
+}
