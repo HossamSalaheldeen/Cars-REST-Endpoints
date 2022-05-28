@@ -2,36 +2,20 @@
 
 namespace App\Models;
 
-
-use App\Traits\HasFilterBy;
-use App\Traits\HasSortBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Car extends Model
+class CarModel extends Model
 {
-    use HasFactory, HasFilterBy, HasSortBy;
-
+    use HasFactory;
     /**
      * The attributes that are mass assignable.
      * @var array
      */
     protected $fillable = [
-        'color',
-        'year',
-        'top_speed',
-        'has_gas_economy',
-        'car_model_id'
-    ];
-
-    /**
-     * @var array
-     */
-    protected $sortable = [
-        'id',
-        'created_at',
-        'year',
-        'top_speed'
+        'name',
+        'code',
+        'brand_id'
     ];
 
 
@@ -52,8 +36,16 @@ class Car extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function carModel()
+    public function brand()
     {
-        return $this->belongsTo(CarModel::class);
+        return $this->belongsTo(Brand::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function cars()
+    {
+        return $this->hasMany(Car::class);
     }
 }
